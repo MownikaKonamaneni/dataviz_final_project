@@ -1,6 +1,6 @@
 # Data Visualization and Reproducible Research
 
-> Mownika Konamaneni - mkonamaneni4501@floridapoly.edu. 
+> Mownika Konamaneni. 
 
 Learn more about me in my [GitHub profile page](https://github.com/MownikaKonamaneni). 
 
