@@ -21,7 +21,7 @@ Performed below data analysis on the Marathon dataset:
 4. Determine the top 10 countries with the fastest runners based on average finishing time.
  
 Find the code and report in the `project_01/` folder.
-**My favorite visualization is:** 
+**Distribution of number of finishers by age group with bar plot:** 
 
 ![ ](https://github.com/MownikaKonamaneni/dataviz_final_project/blob/main/figures/Project01.jpg)
 
