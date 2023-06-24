@@ -19,10 +19,11 @@ Performed below data analysis on the Marathon dataset:
 2. **Age Distribution of Finishers**: To understand the age distribution of finishers, a histogram is created with density estimation. The histogram depicting the age distribution of finishers indicated a relatively normal distribution with a peak in the mid-40s. This finding suggests that individuals in their mid-40s participate in marathons more frequently compared to other age groups.
 3. **Age Distribution based on Gender**: The age distribution is further analyzed based on gender by creating a histogram with density estimation and differentiating between male and female runners. The histogram comparing the age distribution based on gender highlighted interesting differences. Age distribution of Women finishers is on lower scale compared to men. Which means on an average women finishers have lower age compared to men.
 4. **Top 10 Countries with the Fastest Runners**: The data is grouped by country, and the average finishing time is calculated for each country. The top 10 countries with the fastest runners, based on average finishing time, are selected and visualized using a bar plot. The analysis of average finishing times for each country allowed us to identify the top 10 countries with the fastest runners. Among them, ZIM (Zimbabwe), KEN (Kenya), BRN (Brunei), and ETH (Ethiopia) stood out as leading countries in terms of marathon performance, with only minor differences distinguishing them. Notably, ZIM (Zimbabwe) emerged as the country with the fastest runners.
-
+5. 
+Find the code and report in the `project_01/` folder.
 **My favorite visualization is:** 
 
-![](https://github.com/MownikaKonamaneni/dataviz_final_project/blob/main/figures/Project01.jpg)
+![ ](https://github.com/MownikaKonamaneni/dataviz_final_project/blob/main/figures/Project01.jpg)
 
 ## Project 02
 
@@ -38,14 +39,13 @@ In this project, I explored  Analyze the World cup matches data from 1930 to 201
 Find the code and report in the `project_02/` folder.
 **My favorite data visualization:** 
 
-![](https://github.com/MownikaKonamaneni/dataviz_final_project/blob/main/figures/Project02.jpg)
+![ ](https://github.com/MownikaKonamaneni/dataviz_final_project/blob/main/figures/Project02.jpg)
 
-(you can place your figures in the `figures/` folder and use the `![](path_to_picture)` option to add the pictures here)
 
 
 ## Project 03
 
-In this project, I explored ... _[short description of the data visualizations you for this part of the project produced goes here]_
+In this project, I explored methods to create different types of data visualizations (such as density plots, density ridge plots, etc ) using the dataset obtained from ![FSU's Florida Climate Center](https://github.com/MownikaKonamaneni/dataviz_final_project/blob/main/data/tpa_weather_2022.csv) , for a station at Tampa International Airport (TPA) for 2022 and the concrete dataset . 
 
 **Sample data visualization:** 
 
