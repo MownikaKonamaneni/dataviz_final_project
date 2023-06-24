@@ -15,11 +15,11 @@ In the `project_01/` folder you can find an analysis of ![marathon data from the
 **Data Analysis and visualization**
 Performed below data analysis on the Marathon dataset:
 
-1. **Number of Finishers by Age Group**: The count of finishers is calculated for each age group. This information is then visualized using a bar plot. The bar plot showcasing the number of finishers by age group revealed that the highest number of finishers fell within the age group of 40-45, followed closely by the age group of 45-50. The number of finishers gradually increase with age until mid40's, then it starts gradually decreased with increasing age.
-2. **Age Distribution of Finishers**: To understand the age distribution of finishers, a histogram is created with density estimation. The histogram depicting the age distribution of finishers indicated a relatively normal distribution with a peak in the mid-40s. This finding suggests that individuals in their mid-40s participate in marathons more frequently compared to other age groups.
-3. **Age Distribution based on Gender**: The age distribution is further analyzed based on gender by creating a histogram with density estimation and differentiating between male and female runners. The histogram comparing the age distribution based on gender highlighted interesting differences. Age distribution of Women finishers is on lower scale compared to men. Which means on an average women finishers have lower age compared to men.
-4. **Top 10 Countries with the Fastest Runners**: The data is grouped by country, and the average finishing time is calculated for each country. The top 10 countries with the fastest runners, based on average finishing time, are selected and visualized using a bar plot. The analysis of average finishing times for each country allowed us to identify the top 10 countries with the fastest runners. Among them, ZIM (Zimbabwe), KEN (Kenya), BRN (Brunei), and ETH (Ethiopia) stood out as leading countries in terms of marathon performance, with only minor differences distinguishing them. Notably, ZIM (Zimbabwe) emerged as the country with the fastest runners.
-5. 
+1. Number of Finishers by Age Group
+2. Age Distribution of Finishers
+3. Age Distribution based on Gender
+4. Determine the top 10 countries with the fastest runners based on average finishing time.
+ 
 Find the code and report in the `project_01/` folder.
 **My favorite visualization is:** 
 
