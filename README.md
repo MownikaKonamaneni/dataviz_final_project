@@ -45,14 +45,14 @@ Find the code and report in the `project_02/` folder.
 
 ## Project 03
 
-In this project, I explored methods to create different types of data visualizations (such as density plots, density ridge plots, etc ) using the dataset obtained from ![FSU's Florida Climate Center](https://github.com/MownikaKonamaneni/dataviz_final_project/blob/main/data/tpa_weather_2022.csv) , for a station at Tampa International Airport (TPA) for 2022 and the concrete dataset . 
+In this project, I explored methods to create different types of data visualizations (such as density plots, density ridge plots, etc ) using the dataset obtained from ![FSU's Florida Climate Center](https://github.com/MownikaKonamaneni/dataviz_final_project/blob/main/data/tpa_weather_2022.csv) , for a station at Tampa International Airport (TPA) for 2022 and the ![concrete dataset](data/concrete.csv) . The main task of Part 1 was to recreate six graphs which makes use of faceting and ridges. The numeric columns of "month" was converted into written characters, the function as.factor is made use of which returns the original object of a class with the requested column specified as a factor rather than numeric
 
-**Sample data visualization:** 
+**Compression strength distribution box plot:**
+The plot observe horizontal patterns for each color, which shows there are multiple segments in the data. This shows specific combination of materials create a certain compressive strength. And changing that mixture combination can change the compressive strength.
 
-_[include your favorite visualization from this project here]_
-<img src="https://github.com/reisanar/figs/raw/master/concrete_density.png" width="80%" height="80%">
+![](https://github.com/MownikaKonamaneni/dataviz_final_project/blob/main/figures/Project03.jpg)
 
 
 ### Moving Forward
 
-_Please add here a short reflection on what you learned and what you plan to continue exploring in terms of data visualization, data storytelling, reproducible research, and/or related topics._
+I have gained extensive knowledge in areas such as design principles, ggplot, grammar of graphics, spatial visualization, interactive plots, and reproducible research. This newfound understanding has greatly enhanced my analytical and coding abilities. I am motivated to continue my learning journey and apply these skills to diverse datasets in the future.
