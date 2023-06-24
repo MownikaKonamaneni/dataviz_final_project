@@ -16,11 +16,11 @@ This project aims to analyze marathon data from the year 2017. The dataset used 
 4. Determine the top 10 countries with the fastest runners based on average finishing time.
 
 ## Data Loading
-The project starts by loading the necessary libraries, including tidyverse and ggplot2. These libraries provide functions for data manipulation and visualization, respectively. The marathon data is then loaded using the read_csv function from the tidyverse library.
+The project starts by loading the necessary libraries, including `tidyverse` and `ggplot2`. These libraries provide functions for data manipulation and visualization, respectively. The marathon data is then loaded using the `read_csv` function from the `tidyverse` library.
 
 
 ```r
-#Load libraries
+# Load libraries
 library(tidyverse)
 library(ggplot2)
 ```

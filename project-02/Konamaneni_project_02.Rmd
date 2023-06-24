@@ -7,6 +7,262 @@ output:
     toc_float: true
 ---
 
-# Data Visualization Project 02
 
-_revised version of mini-project 02 goes here_
+# Data Visualization - Mini Project 2
+
+This project is aims to:
+
+* Analyze the World cup matches data from 1930 to 2014. The dataset used for analysis is "WorldCupMatches.csv".
+
+* Visualization of Model fitting on Heart disease diagnostic data and its coefficient plot.
+
+The main objective of this projects are to:
+
+1. Visualize the average number of goals scored by the away team and the home team on maps.
+2. Analyze the number of matches won by the home team and the away team as the outcome of the match.
+3. Determine the total number of goals scored in each match.
+4. Analyze the heart disease prediction dataset.
+5. Fit a model to the heart disease data and determine its coefficients and metrics. 
+
+
+## Data Loading
+The project starts by loading the necessary libraries. These libraries provide functions for data manipulation and visualization, respectively. 
+
+```{r, , results='hide', message=FALSE, warning=FALSE}
+# Load libraries
+library(tidyverse)
+library(lubridate)
+library(sf)
+library(data.table)
+library(fastDummies)
+library(dotwhisker)
+library(ROCR)
+library(plotly)
+```
+
+```{r, , message=FALSE, warning = FALSE}
+#Load the data
+
+worldcup_matches <- read_csv("D:/Masters/Github/dataviz_final_project/project-02/data/WorldCupMatches.csv")
+
+str(worldcup_matches)
+
+```
+
+## Data cleaning and processing
+
+The data cleaning and processing steps include the following:
+
+```{r}
+source("D:/Masters/Github/dataviz_final_project/project-02/Data_transformation.R")
+```
+
+
+```{r, message=FALSE, warning = FALSE}
+# Calculate summary statistics
+summary(worldcup_matches$home_team_goals)
+summary(worldcup_matches$away_team_goals)
+
+```
+
+From above summary statistics we can determine that maximum number of goals scored by home team are 10 and Away team scored 7.   
+
+
+### Visualization of Average number of Away team goals and Home team goals in Maps 
+
+The average number of goals scored by the away team is visualized on a map using the world shapefile data from [Natural Earth](https://www.naturalearthdata.com/).
+The "average_goals" variable calculated from the World Cup matches data by aggregating the home team and away team goals based on the country and marked them on map by grouping with country.
+```{r, message=FALSE, warning = FALSE}
+world_shapes <- read_sf("D:/Masters/Github/dataviz_final_project/project-02/data/ne_110m_admin_0_countries/ne_110m_admin_0_countries.shp")
+
+worldcup_away_goals <- worldcup_matches  %>% group_by(away_country) %>%summarise(average_goals = mean(away_team_goals))
+
+away_spatial_data <- world_shapes %>%
+  left_join(worldcup_away_goals, by = c("ADMIN" = "away_country")) %>%
+  filter(ISO_A3 != "ATA") 
+
+
+
+# Plot the map
+ggplot(away_spatial_data, aes(group = ADMIN)) +
+  geom_sf(aes(fill = average_goals)) +
+  coord_sf(crs = "+proj=robin") +
+  scale_fill_gradient(low = "blue", high = "red", na.value = "gray", name = "Away Team Goals") +
+  ggtitle("Average Number of Away Team Goals in World Cup Matches") +
+  theme_minimal() +
+  theme(plot.title = element_text(size = 18, face = "bold"),
+        legend.title = element_text(size = 12, face = "bold"),
+        legend.text = element_text(size = 10),
+        legend.position = "bottom",
+        panel.grid = element_blank(),
+        axis.text = element_blank(),
+        axis.title = element_blank())
+
+
+```
+
+From the above map we can see that Germany scored highest avaerage number of goals in the worldcup matches followed by Netherlands and Brazil. 
+
+
+
+```{r, message=FALSE, warning = FALSE}
+
+worldcup_home_goals <- worldcup_matches  %>% group_by(home_country) %>%summarise(average_goals = mean(home_team_goals))
+
+
+home_spatial_data <- world_shapes %>%
+  left_join(worldcup_home_goals, by = c("ADMIN" = "home_country")) %>%
+  filter(ISO_A3 != "ATA") 
+
+
+
+# Plot the map
+ ggplot(home_spatial_data, aes(group = ADMIN)) +
+  geom_sf(aes(fill = average_goals)) +
+   coord_sf(crs = "+proj=robin") +
+  scale_fill_gradient(low = "blue", high = "red", na.value = "gray", name = "Home Team Goals") +
+  labs(title = "Average Number of Goals Scored by Home Teams in World Cup Matches") +
+  theme_minimal() +
+  theme(plot.title = element_text(size = 18, face = "bold"),
+        legend.title = element_text(size = 12, face = "bold"),
+        legend.text = element_text(size = 10),
+        legend.position = "bottom",
+        panel.grid = element_blank(),
+        axis.text = element_blank(),
+        axis.title = element_blank())
+
+```
+
+From the above map we can see that Turkey scored highest avaerage number of goals in the worldcup matches followed by Hungary.
+
+Analyze the number of matches won by Home team and Away team as outcome of the match
+
+```{r, message=FALSE, warning = FALSE, fig.width = 10, fig.height = 5}
+# Bar chart of match outcome
+b <- ggplot(worldcup_matches, aes(x = outcome, fill = outcome)) +
+  geom_bar( width = 0.3) +
+  labs(title = "Match Outcome",
+       x = "Outcome", y = "Count") +
+  scale_fill_manual(values = c("Home Team Win" = "steelblue", "Away Team Win" = "salmon")) 
+
+ggplotly(b)  
+```
+The total number of goals scored in each year from 1930 to 2014 is visualized using a bar chart. The chart depicts the trend of goals scored over time.
+```{r, message=FALSE, warning = FALSE, fig.width = 10, fig.height = 5}
+# Create the bar chart
+Goals_plot <- ggplot(worldcup_matches, aes(x = Year, y = Goals)) +
+  geom_bar(stat = "identity", fill = "steelblue") +
+  labs(title = "Total Goals Scored Every Year (1930-2014)",
+       x = "Year", y = "Goals") +
+  theme_minimal()
+
+ggplotly(Goals_plot)
+
+```
+
+As we can see from above plot, there are more number of goals scored in the year 2000. The worldcup games has been held every four years, except for the years 1942 and 1946, during World War II. due that we dont see any data for that period in the plot. 
+
+
+
+```{r, message=FALSE, warning = FALSE, fig.width = 10, fig.height = 5}
+Worldcup_goals_by_year <- worldcup_matches %>%
+  group_by(Year) %>%
+  mutate(total_goals = sum(Goals))
+
+
+
+# Line plot: Number of goals over different years
+
+l <- ggplot(Worldcup_goals_by_year, aes(x = Year, y = total_goals)) +
+  geom_line(color="blue") +
+  xlab("Year") + ylab("Number of Goals") +
+  ggtitle("Number of Goals Over Different Years") +
+  theme_minimal()
+
+ggplotly(l)
+
+```
+
+The above plot shows us the number of goals scored in world cup over the years 1930 to 2014. 
+
+
+## Heart disease data set analysis and pre-processing 
+
+
+```{r, message=FALSE, warning = FALSE}
+
+heart_data <- drop_na(read.csv("D:/Masters/Github/dataviz_final_project/project-02/data/Heart.csv")[, -1])
+
+str(heart_data)
+```
+
+The dataset is preprocessed by converting the "AHD" (heart disease diagnosis) column into binary values (0 for "No" and 1 for "Yes") becasue the target variable is in character format. .
+
+```{r, message=FALSE, warning = FALSE}
+heart_data$AHD<-ifelse(heart_data$AHD=="Yes",1,0)
+summary(heart_data)
+```
+
+Since the Chestpain and Thal are the catagorical variables creating dummy variables into numeric variable to fit the model using those variables. 
+
+```{r, message=FALSE, warning = FALSE}
+mdl_data = dummy_cols(heart_data, select_columns=c( "ChestPain", "Thal"), remove_selected_columns=TRUE)
+```
+### Model Fitting and Coefficient Plot
+
+A logistic regression model is fitted to the heart disease data using the glm() function. The model's coefficients and summary statistics are displayed. Additionally, a coefficient plot is generated to visualize the coefficients.
+
+```{r, message=FALSE, warning = FALSE}
+mdl = glm(AHD ~., family=binomial(link='logit'), data=mdl_data)
+```
+
+Summary for the model coefficients, 
+
+```{r, message=FALSE, warning = FALSE}
+summary(mdl)
+```
+## Model Coefficient plot
+```{r, message=FALSE, warning = FALSE}
+dwplot(mdl)
+```
+
+From above coefficient plot and summary we can clearly identify Sex, Ca, ChestPain_asymptomic and Thal_normal are the most siginificant varibales for the model prediction. 
+
+## Area Under ROC curve
+```{r}
+y_hat  = predict(mdl, mdl_data)
+pr = prediction(y_hat, mdl_data$AHD)
+auc <- performance(pr, measure = "auc")
+title = paste('AUC: ', auc@y.values[[1]])
+prf <- performance(pr, measure = "tpr", x.measure = "fpr")
+plot(prf, main=title)
+```
+
+
+Based on the evaluation of the model's performance, we calculated the area under the receiver operating characteristic (ROC) curve. The ROC curve is a commonly used metric for assessing the effectiveness of a classification model. It plots the True Positive Rate (Sensitivity) against the False Positive Rate (1 - Specificity) at different classification thresholds.
+
+An AUC-ROC value greater than 0.5 indicates that the model performs better than random guessing. In our case, the generated AUC-ROC value is 0.933, indicating a strong predictive capability of the model. Higher AUC-ROC values correspond to better model performance.
+
+For further understanding of ROC curves and machine learning in general, you can refer to the following resources:
+
+- [Introduction to ROC Analysis](https://en.wikipedia.org/wiki/Receiver_operating_characteristic)
+- [Machine Learning Mastery: ROC Curves and Area Under the Curve (AUC)](https://machinelearningmastery.com/roc-curves-and-precision-recall-curves-for-classification-in-python/)
+- [Scikit-learn Documentation: Receiver Operating Characteristic (ROC)](https://scikit-learn.org/stable/auto_examples/model_selection/plot_roc.html)
+- [Towards Data Science: An Introduction to ROC Analysis](https://towardsdatascience.com/an-introduction-to-roc-analysis-50b2da6b667e)
+
+These resources provide detailed explanations and examples to enhance your understanding of ROC curves and their relevance in machine learning.
+
+
+# Conclusion
+
+For the World Cup matches analysis, I visualized the average number of goals scored by the home team and away team on maps. Germany, Netherlands, and Brazil emerged as the top-performing teams in terms of average goals scored. I also examined the number of matches won by the home team and away team, highlighting the outcomes of the matches. Furthermore, I explored the trend of total goals scored each year, revealing a significant spike in 2000.
+
+In the heart disease diagnostic data analysis, I preprocessed the dataset by converting the "AHD" column into binary values and creating dummy variables for categorical variables. Subsequently, I fitted a logistic regression model and obtained the model's coefficients and summary statistics. The coefficient plot helped identify significant variables such as sex, number of major vessels (ca), chest pain type (asymptomatic), and thalassemia results (normal) that strongly influence heart disease prediction.
+
+To evaluate the model's performance, I calculated the area under the receiver operating characteristic (ROC) curve, which yielded an AUC-ROC value of 0.933. This value indicates a strong predictive capability of the model, surpassing random guessing. A higher AUC-ROC value signifies better model performance.
+
+Overall, this project provides valuable insights into World Cup matches data and heart disease prediction. The visualizations and analyses enhance my understanding of these datasets, their patterns, and the factors that impact their outcomes.
+
+
+
+
