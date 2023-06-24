@@ -38,7 +38,8 @@ In this project, I explored  Analyze the World cup matches data from 1930 to 201
 5. Fit a model to the heart disease data and determine its coefficients and metrics.
 
 Find the code and report in the `project_02/` folder.
-**My favorite data visualization:** 
+
+**Spatial data visualization of avg # of goals scored by away team in worldcup matches:** 
 
 ![ ](https://github.com/MownikaKonamaneni/dataviz_final_project/blob/main/figures/Project02.jpg)
 
