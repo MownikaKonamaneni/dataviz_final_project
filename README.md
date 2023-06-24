@@ -10,7 +10,10 @@ The following is a sample of products created during the _"Data Visualization an
 
 ## Project 01
 
-In the `project_01/` folder you can find an analysis of ![marathon data from the year 2017](https://github.com/MownikaKonamaneni/dataviz_final_project/blob/main/project-01/data/marathon_results_2017.csv). The analysis included exploring the number of finishers by age group, visualizing the age distribution of finishers, investigating the age distribution based on gender, and determining the top 10 countries with the fastest runners based on average finishing time. The visualizations provided insights into the demographics and performance of marathon runners, allowing for a better understanding of the dataset.
+In the `project_01/` folder you can find an analysis of ![marathon data from the year 2017](https://github.com/MownikaKonamaneni/dataviz_final_project/blob/main/project-01/data/marathon_results_2017.csv). 
+
+**Data analysis and visualization**
+The analysis included exploring the number of finishers by age group, visualizing the age distribution of finishers, investigating the age distribution based on gender, and determining the top 10 countries with the fastest runners based on average finishing time. The visualizations provided insights into the demographics and performance of marathon runners, allowing for a better understanding of the dataset.
 
 **Data Analysis and visualization**
 Performed below data analysis on the Marathon dataset:
