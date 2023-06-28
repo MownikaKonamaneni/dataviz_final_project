@@ -28,7 +28,7 @@ Find the code and report in the `project_01/` folder.
 
 **Distribution of number of finishers by age group with bar plot:** 
 
-[ ](https://github.com/MownikaKonamaneni/dataviz_final_project/blob/main/figures/Project01.jpg)
+![ ](https://github.com/MownikaKonamaneni/dataviz_final_project/blob/main/figures/Project01.jpg)
 
 ## Project 02
 
@@ -46,7 +46,7 @@ Find the code and report in the `project_02/` folder.
 
 **Spatial data visualization of avg # of goals scored by away team in worldcup matches:** 
 
-[ ](https://github.com/MownikaKonamaneni/dataviz_final_project/blob/main/figures/Project02.jpg)
+![ ](https://github.com/MownikaKonamaneni/dataviz_final_project/blob/main/figures/Project02.jpg)
 
 
 
@@ -60,7 +60,7 @@ In Part 1 of the project, my primary objective was to recreate six graphs that i
 
 The plot observe horizontal patterns for each color, which shows there are multiple segments in the data. This shows specific combination of materials create a certain compressive strength. And changing that mixture combination can change the compressive strength.
 
-[](https://github.com/MownikaKonamaneni/dataviz_final_project/blob/main/figures/Project03.jpg)
+![](https://github.com/MownikaKonamaneni/dataviz_final_project/blob/main/figures/Project03.jpg)
 
 
 ### Moving Forward
