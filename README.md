@@ -28,11 +28,11 @@ Find the code and report in the `project_01/` folder.
 
 **Distribution of number of finishers by age group with bar plot:** 
 
-![ ](https://github.com/MownikaKonamaneni/dataviz_final_project/blob/main/figures/Project01.jpg)
+[ ](https://github.com/MownikaKonamaneni/dataviz_final_project/blob/main/figures/Project01.jpg)
 
 ## Project 02
 
-In this project, I explored  Analyze the World cup matches data from 1930 to 2014. The dataset used for analysis is !["WorldCupMatches.csv"](https://github.com/MownikaKonamaneni/dataviz_final_project/blob/main/project-02/data/WorldCupMatches.csv)  and Visualization of Model fitting on ![Heart disease diagnostic data](https://github.com/MownikaKonamaneni/dataviz_final_project/blob/main/project-02/data/Heart.csv) and its coefficient plot. 
+In this project, I explored  Analyze the World cup matches data from 1930 to 2014. The dataset used for analysis is ["WorldCupMatches.csv"](https://github.com/MownikaKonamaneni/dataviz_final_project/blob/main/project-02/data/WorldCupMatches.csv)  and Visualization of Model fitting on [Heart disease diagnostic data](https://github.com/MownikaKonamaneni/dataviz_final_project/blob/main/project-02/data/Heart.csv) and its coefficient plot. 
 
 **Data analysis and visualization**
 
@@ -46,13 +46,13 @@ Find the code and report in the `project_02/` folder.
 
 **Spatial data visualization of avg # of goals scored by away team in worldcup matches:** 
 
-![ ](https://github.com/MownikaKonamaneni/dataviz_final_project/blob/main/figures/Project02.jpg)
+[ ](https://github.com/MownikaKonamaneni/dataviz_final_project/blob/main/figures/Project02.jpg)
 
 
 
 ## Project 03
 
-In this project, I explored methods to create different types of data visualizations (such as density plots, density ridge plots, etc ) using the dataset obtained from ![FSU's Florida Climate Center](https://github.com/MownikaKonamaneni/dataviz_final_project/blob/main/data/tpa_weather_2022.csv) , for a station at Tampa International Airport (TPA) for 2022 and the ![concrete dataset](data/concrete.csv) . 
+In this project, I explored methods to create different types of data visualizations (such as density plots, density ridge plots, etc ) using the dataset obtained from [FSU's Florida Climate Center](https://github.com/MownikaKonamaneni/dataviz_final_project/blob/main/data/tpa_weather_2022.csv) , for a station at Tampa International Airport (TPA) for 2022 and the [concrete dataset](data/concrete.csv) . 
 
 In Part 1 of the project, my primary objective was to recreate six graphs that incorporated faceting and ridges. To achieve this, I transformed the "month" numeric column into written characters using the as.factor function. This conversion returned the original object with the specified column transformed into a factor instead of a numeric value. In part 2 explored Concrete dataset and analysed distribution of the continuous variables available in the dataset and made visualizations. 
 
@@ -60,7 +60,7 @@ In Part 1 of the project, my primary objective was to recreate six graphs that i
 
 The plot observe horizontal patterns for each color, which shows there are multiple segments in the data. This shows specific combination of materials create a certain compressive strength. And changing that mixture combination can change the compressive strength.
 
-![](https://github.com/MownikaKonamaneni/dataviz_final_project/blob/main/figures/Project03.jpg)
+[](https://github.com/MownikaKonamaneni/dataviz_final_project/blob/main/figures/Project03.jpg)
 
 
 ### Moving Forward
